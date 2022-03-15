@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: BSCTestNet
@@ -22,7 +22,7 @@ dataSources:
         - User
       abis:
         - name: BSCTestNet
-          file: ./abis/BSCTestNet.json
+          file: BSCTestNet/abis/BSCTestNet.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -32,4 +32,4 @@ dataSources:
           handler: handleTransfer
         - event: buyed(address,uint256,address,uint256,address,uint256)
           handler: handlebuyed
-      file: ./src/mapping.ts
+      file: BSCTestNet/BSCTestNet.wasm
