@@ -1,0 +1,16 @@
+{
+  "name": "bsc-not-main",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-not-main",
+    "create-local": "graph create --node http://localhost:8020/ werber/bsc-not-main",
+    "remove-local": "graph remove --node http://localhost:8020/ werber/bsc-not-main",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 werber/bsc-not-main"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.28.0",
+    "@graphprotocol/graph-ts": "0.26.0"
+  }
+}
