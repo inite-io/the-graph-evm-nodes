@@ -1,6 +1,10 @@
 type NFTToken @entity {
   id: ID!
   creator: User!
+  title: String
+  description: String
+  media: String
+  reference: String
   price: BigInt
   json: String
   on_sale: Boolean

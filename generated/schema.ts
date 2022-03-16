@@ -55,6 +55,74 @@ export class NFTToken extends Entity {
     this.set("creator", Value.fromString(value));
   }
 
+  get title(): string | null {
+    let value = this.get("title");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set title(value: string | null) {
+    if (!value) {
+      this.unset("title");
+    } else {
+      this.set("title", Value.fromString(<string>value));
+    }
+  }
+
+  get description(): string | null {
+    let value = this.get("description");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set description(value: string | null) {
+    if (!value) {
+      this.unset("description");
+    } else {
+      this.set("description", Value.fromString(<string>value));
+    }
+  }
+
+  get media(): string | null {
+    let value = this.get("media");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set media(value: string | null) {
+    if (!value) {
+      this.unset("media");
+    } else {
+      this.set("media", Value.fromString(<string>value));
+    }
+  }
+
+  get reference(): string | null {
+    let value = this.get("reference");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set reference(value: string | null) {
+    if (!value) {
+      this.unset("reference");
+    } else {
+      this.set("reference", Value.fromString(<string>value));
+    }
+  }
+
   get price(): BigInt | null {
     let value = this.get("price");
     if (!value || value.kind == ValueKind.NULL) {

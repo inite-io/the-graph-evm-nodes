@@ -1,4 +1,4 @@
-import { bigInt, BigInt } from "@graphprotocol/graph-ts"
+import { bigInt, BigInt, json, JSONValue } from "@graphprotocol/graph-ts"
 import {
   BSCTestNet,
   Approval,
@@ -57,24 +57,44 @@ export function handleTransfer(event: Transfer): void {
   let token = NFTToken.load(event.params.tokenId.toString());
   if (!token) {
     token = new NFTToken(event.params.tokenId.toString());
-    token.creator = event.params.to.toString();
+    token.creator = event.params.to.toHexString();
     token.token_id = event.params.tokenId;
 
     // when new token generated creator is owner
     token.owner = token.creator;
     // initially token is on sale
-    token.on_sale = true;
   
     let tokenContract = BSCTestNet.bind(event.address);
-    // let tokenContract = BSCTestNet.bind(event.address);
-    // let some = new BigInt(0);
-    // token.price = tokenContract.getItemInfo(some)[0].price;
+    token.price = tokenContract.getItemInfo(event.params.tokenId)[0].price;
+    token.json = tokenContract.getItemInfo(event.params.tokenId)[0].data;
+    token.on_sale = tokenContract.getItemInfo(event.params.tokenId)[0].onSale;
+    
+    const data = json.fromString(tokenContract.getItemInfo(event.params.tokenId)[0].data);
+    const title = data.toObject().get("title");
+    if (title)  {
+      token.title = title.toString();
+    }
+
+    const description = data.toObject().get("description");
+    if (description) {
+      token.description = description.toString();
+    }
+
+    const media = data.toObject().get("media");
+    if (description) {
+      token.media = description.toString();
+    }
+
+    const reference = data.toObject().get("reference");
+    if (reference) {
+      token.reference = reference.toString();
+    }
   }
   token.save();
 
-  let user = User.load(event.params.to.toString());
+  let user = User.load(event.params.to.toHexString());
   if (!user) {
-    user = new User(event.params.to.toString());
+    user = new User(event.params.to.toHexString());
     user.save();
   }
 
