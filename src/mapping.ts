@@ -92,6 +92,10 @@ export function handleTransfer(event: Transfer): void {
   }
   token.save();
 
+  if (token && event.params.from != event.params.to) {
+    token.owner = event.params.to.toHexString();
+  }
+
   let user = User.load(event.params.to.toHexString());
   if (!user) {
     user = new User(event.params.to.toHexString());
@@ -100,4 +104,6 @@ export function handleTransfer(event: Transfer): void {
 
 }
 
-export function handlebuyed(event: buyed): void { }
+export function handlebuyed(event: buyed): void {
+  
+}
