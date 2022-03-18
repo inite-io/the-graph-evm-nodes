@@ -4,10 +4,12 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-not-main",
-    "create-local": "graph create --node http://localhost:8020/ werber/bsc-not-main",
-    "remove-local": "graph remove --node http://localhost:8020/ werber/bsc-not-main",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 werber/bsc-not-main"
+    "create-local": "graph create --node http://localhost:8020/ werber/bsc-not-main-four",
+    "remove-local": "graph remove --node http://localhost:8020/ werber/bsc-not-main-four",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 werber/bsc-not-main-four",
+
+    "bsc:template": "rm ./subgraph.yaml || true && cp ./subgraph_template.yaml ./subgraph.yaml && sed -i \"s/{{ADDRESS}}/0xF7cAD1f9De025022BB370Bc59D9B2f4cE507771d/\" ./subgraph.yaml",
+    "bsc:deploy": "yarn bsc:template && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-test-net"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.28.0",
