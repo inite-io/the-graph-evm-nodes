@@ -11,7 +11,8 @@
     "bsc:template": "rm ./subgraph.yaml || true && cp ./subgraph_template.yaml ./subgraph.yaml && sed -i \"s/{{ADDRESS}}/0xF7cAD1f9De025022BB370Bc59D9B2f4cE507771d/\" ./subgraph.yaml && sed -i \"s/{{START_BLOCK}}/17393453/\" ./subgraph.yaml",
     "bsc:deploy": "yarn bsc:template && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-test-net",
 
-    "polygon:template": "rm ./subgraph.yaml || true && cp ./subgraph_template.yaml ./subgraph.yaml && sed -i \"s/{{ADDRESS}}/0xF7cAD1f9De025022BB370Bc59D9B2f4cE507771d/\" ./subgraph.yaml"
+    "polygon:template": "rm ./subgraph.yaml || true && cp ./subgraph_template.yaml ./subgraph.yaml && sed -i \"s/{{ADDRESS}}/0xB154e9F0EA0509DBF4c8bf40a93886ddBb0FA435/\" ./subgraph.yaml && sed -i \"s/{{START_BLOCK}}/25362952/\" ./subgraph.yaml",
+    "polygon:deploy": "yarn bsc:template && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-staging"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.28.0",
