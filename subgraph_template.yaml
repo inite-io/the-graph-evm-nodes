@@ -8,7 +8,7 @@ dataSources:
     source:
       address: "{{ADDRESS}}"
       abi: BSCTestNet
-      startBlock: 17393453
+      startBlock: {{START_BLOCK}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
