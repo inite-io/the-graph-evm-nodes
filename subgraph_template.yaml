@@ -4,7 +4,7 @@ schema:
 dataSources:
   - kind: ethereum
     name: BSCTestNet
-    network: chapel
+    network: {{CHAIN}}
     source:
       address: "{{ADDRESS}}"
       abi: BSCTestNet
