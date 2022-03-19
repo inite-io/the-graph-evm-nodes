@@ -8,8 +8,10 @@
     "remove-local": "graph remove --node http://localhost:8020/ werber/bsc-not-main-four",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 werber/bsc-not-main-four",
 
-    "polygon:template:testnet": "rm ./subgraph.yaml || true && cp ./subgraph_template.yaml ./subgraph.yaml && sed -i \"s/{{ADDRESS}}/0xB154e9F0EA0509DBF4c8bf40a93886ddBb0FA435/\" ./subgraph.yaml && sed -i \"s/{{START_BLOCK}}/25362952/\" ./subgraph.yaml",
-    "polygon:deploy:testnet": "yarn bsc:template && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-staging",
+    "polygon:template:testnet": "./scripts/polygon/generate_template_testnet.sh",
+    "polygon:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-staging",
+    "polygon:template:mainnet": "./scripts/polygon/generate_template_mainnet.sh",
+    "polygon:deploy:mainnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-mainnet",
 
     "aurora:template:testnet": "./scripts/aurora/generate_template_testnet.sh",
     "aurora:deploy:testnet": "yarn aurora:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/aurora-staging",
