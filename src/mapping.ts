@@ -81,8 +81,8 @@ export function handleTransfer(event: Transfer): void {
     }
 
     const media = data.toObject().get("media");
-    if (description) {
-      token.media = description.toString();
+    if (media) {
+      token.media = media.toString();
     }
 
     const reference = data.toObject().get("reference");
