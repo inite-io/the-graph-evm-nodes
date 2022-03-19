@@ -17,7 +17,9 @@
     "aurora:deploy:mainnet": "yarn aurora:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/aurora-mainnet",
 
     "bsc:template:testnet": "./scripts/bsc/generate_template_testnet.sh",
-    "bsc:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-test-net"
+    "bsc:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-test-net",
+    "bsc:template:mainnet": "./scripts/bsc/generate_template_mainnet.sh",
+    "bsc:deploy:mainnet": "yarn bsc:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-main-net"
 
   },
   "dependencies": {
