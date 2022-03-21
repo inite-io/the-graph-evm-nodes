@@ -9,19 +9,19 @@
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 werber/bsc-not-main-four",
 
     "polygon:template:testnet": "./scripts/polygon/generate_template_testnet.sh",
-    "polygon:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-staging",
+    "polygon:deploy:testnet": "yarn polygon:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-polygon-testnet",
     "polygon:template:mainnet": "./scripts/polygon/generate_template_mainnet.sh",
-    "polygon:deploy:mainnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/polygon-mainnet",
+    "polygon:deploy:mainnet": "yarn polygon:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-polygon",
 
     "aurora:template:testnet": "./scripts/aurora/generate_template_testnet.sh",
-    "aurora:deploy:testnet": "yarn aurora:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/aurora-staging",
+    "aurora:deploy:testnet": "yarn aurora:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-aurora-testnet",
     "aurora:template:mainnet": "./scripts/aurora/generate_template_mainnet.sh",
-    "aurora:deploy:mainnet": "yarn aurora:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/aurora-mainnet",
+    "aurora:deploy:mainnet": "yarn aurora:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-aurora",
 
     "bsc:template:testnet": "./scripts/bsc/generate_template_testnet.sh",
-    "bsc:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-test-net",
+    "bsc:deploy:testnet": "yarn bsc:template:testnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-bsc-testnet",
     "bsc:template:mainnet": "./scripts/bsc/generate_template_mainnet.sh",
-    "bsc:deploy:mainnet": "yarn bsc:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/bsc-main-net"
+    "bsc:deploy:mainnet": "yarn bsc:template:mainnet && yarn codegen && yarn build && graph deploy --node https://api.thegraph.com/deploy/ werber/inite-bsc"
 
   },
   "dependencies": {
