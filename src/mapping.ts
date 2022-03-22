@@ -57,14 +57,18 @@ export function handleTransfer(event: Transfer): void {
   let token = NFTToken.load(event.params.tokenId.toString());
   if (!token) {
     token = new NFTToken(event.params.tokenId.toString());
-    token.creator = event.params.to.toHexString();
-    token.token_id = event.params.tokenId;
+    
+    let tokenContract = BSCTestNet.bind(event.address);
+    const tokenInfo = tokenContract.getItemInfo(event.params.tokenId)[0];
+
+    token.creator = tokenInfo.creator.toHexString();
+    token.token_id = tokenInfo.tokenID;
+    const owner = tokenContract.ownerOf(token.token_id);
 
     // when new token generated creator is owner
-    token.owner = token.creator;
+    token.owner = owner.toHexString();
     // initially token is on sale
   
-    let tokenContract = BSCTestNet.bind(event.address);
     token.price = tokenContract.getItemInfo(event.params.tokenId)[0].price;
     token.json = tokenContract.getItemInfo(event.params.tokenId)[0].data;
     token.on_sale = tokenContract.getItemInfo(event.params.tokenId)[0].onSale;
@@ -91,10 +95,6 @@ export function handleTransfer(event: Transfer): void {
     }
   }
   token.save();
-
-  if (token && event.params.from != event.params.to) {
-    token.owner = event.params.to.toHexString();
-  }
 
   let user = User.load(event.params.to.toHexString());
   if (!user) {
