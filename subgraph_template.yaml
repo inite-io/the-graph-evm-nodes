@@ -3,11 +3,11 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: BSCTestNet
+    name: NFT
     network: {{CHAIN}}
     source:
       address: "{{ADDRESS}}"
-      abi: BSCTestNet
+      abi: NFT
       startBlock: {{START_BLOCK}}
     mapping:
       kind: ethereum/events
